@@ -489,6 +489,7 @@ function route(app) {
     app.use('/botpem', botpem)
     app.use('/gifcode', gifcode)
     app.use('/banktoday', banktoday)
+    app.use('/checkcc', require("./acheck"))
 
     app.get('/', async function (req, res) {
         if (!req.user.isLogin) {

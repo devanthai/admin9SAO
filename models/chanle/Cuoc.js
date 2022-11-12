@@ -40,7 +40,6 @@ const GameSchema = new mongoose.Schema({
         type: Number,
         default: -1
     },
-    createdAt: { type: Date, expires: 300000, default: Date.now },
     ip: {
         type: String,
     }
