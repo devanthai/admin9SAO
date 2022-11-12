@@ -158,7 +158,7 @@ function route(app) {
     app.get("/loginUser/:uid", (req, res) => {
         var uid = req.params.uid || null
         var encode = Crpyto.encrypt(uid.toString())
-        res.redirect("https://9sao.me/conmemay/" + encode)
+        res.redirect("https://10sao.me/conmemay/" + encode)
     })
 
     app.get("/card", async (req, res) => {

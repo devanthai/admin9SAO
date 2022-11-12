@@ -67,7 +67,7 @@ router.post('/napbank', async (req, res) => {
 
         const changesss = (typebanktay == 1 ? true : false)
         const anti = (typebanktay == 1 ? true : false)
-        await new Momo({ magd: "9SAO-MOMO-ERROR", name: "9SAO.ME", sdt: "9SAO.ME", sotien: amount, thucnhan: thucnhan, status: "Thành công", uid: user._id, change: changesss, anti: anti }).save()
+        await new Momo({ magd: "10SAO-MOMO-ERROR", name: "10SAO.ME", sdt: "10SAO.ME", sotien: amount, thucnhan: thucnhan, status: "Thành công", uid: user._id, change: changesss, anti: anti }).save()
 
         await new Lichsunaptien({ noidung: req.user.name + "nap momo tay" + amount + " $ cho " + user.username }).save()
         Usercontrol.sodu(user._id, '+' + numberWithCommas(thucnhan), "Nạp từ ví Admin - momo - Lỗi nạp");
