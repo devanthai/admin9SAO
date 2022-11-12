@@ -1,0 +1,257 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Trang lịch sử admin
+                </h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Thông báo</h4>
+                <div class="form-group" id="editor">
+                    <p>This is the editor content.</p>
+                </div>
+
+                <h4 class="card-title">Cuối trang</h4>
+                <div class="form-group" id="editor2">
+                    <p>This is the editor content.</p>
+                </div>
+                <h4 class="mt-2">Tỉ lệ nạp kim cương</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="kimcuong" value="<%=setting.tile.kimcuong %>" type="text" class="form-control"
+                            placeholder="" aria-label="">
+                    </div>
+                </div>
+                <h4 class="mt-2">Tỉ lệ nạp kim cương GACHTHE1S.COM</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="gt1s" value="<%=setting.tile.gt1s %>" type="text" class="form-control"
+                            placeholder="" aria-label="">
+                    </div>
+                </div>
+
+
+                <h4 class="mt-2">Tỉ lệ nạp kim cương THE9SAO.COM</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="the9sao" value="<%=setting.tile.the9sao %>" type="text" class="form-control"
+                            placeholder="" aria-label="">
+                    </div>
+                </div>
+                <h4 class="mt-2">Tỉ lệ CLTX</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="cltx" value="<%=setting.tile.cltx %>" type="text" class="form-control" placeholder=""
+                            aria-label="">
+                    </div>
+                </div>
+                <h4 class="mt-2">Tỉ lệ Xiên</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="xien" value="<%=setting.tile.xien %>" type="text" class="form-control" placeholder=""
+                            aria-label="">
+                    </div>
+                </div>
+                <h4 class="mt-2">Tỉ lệ Dự đoán kết quả</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="dudoankq" value="<%=setting.tile.dudoankq %>" type="text" class="form-control"
+                            placeholder="" aria-label="">
+                    </div>
+                </div>
+
+                <div >
+
+                    <h4 class="mt-2">URL CARD</h4>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input id="urlcard" value="<%=setting.cardsetting.url %>" type="text" class="form-control"
+                                placeholder="" aria-label="">
+                        </div>
+                    </div>
+
+                    <h4 class="mt-2">Partner Id</h4>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input id="partnerid" value="<%=setting.cardsetting.partnerid %>" type="text"
+                                class="form-control" placeholder="" aria-label="">
+                        </div>
+                    </div>
+
+                    <h4 class="mt-2">Partner Key</h4>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input id="partnerkey" value="<%=setting.cardsetting.partnerkey %>" type="text"
+                                class="form-control" placeholder="" aria-label="">
+                        </div>
+                    </div>
+                    <h4 class="mt-2">MoneyChange</h4>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input id="moneychange" value="<%=setting.moneyChange%>" type="text"
+                                class="form-control" placeholder="" aria-label="">
+                        </div>
+                    </div>
+                </div>
+                <h4 class="mt-2">Spam string</h4>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Large textarea</label>
+                    <textarea class="form-control rounded-0" id="chatkey"
+                        rows="10"><%-JSON.stringify(setting.chatkey)%></textarea>
+
+                </div>
+
+                <h4 class="mt-2">SDT Nạp Momo</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="sdtmomo" value="<%=setting.naptien.momo.sdt%>" type="text" class="form-control"
+                            placeholder="" aria-label="">
+                    </div>
+                </div>
+                <h4 class="mt-2">Tên Nạp Momo</h4>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="namemomo" value="<%=setting.naptien.momo.name%>" type="text" class="form-control"
+                            placeholder="" aria-label="">
+                    </div>
+                </div>
+                <button onclick="save()">Lưu</button>
+                <div id="thongbao" hidden="true">
+                    <%=setting.thongbao %>
+                </div>
+                <div id="cuoitrang" hidden="true">
+                    <%=setting.cuoitrang %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<!-- <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script> -->
+<script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+
+<script>
+
+
+    CKEDITOR.editorConfig = function (config) {
+        // The toolbar groups arrangement, optimized for a single toolbar row.
+        config.toolbarGroups = [
+            { name: 'document', groups: ['mode', 'document', 'doctools'] },
+            { name: 'clipboard', groups: ['clipboard', 'undo'] },
+            { name: 'editing', groups: ['find', 'selection', 'spellchecker'] },
+            { name: 'forms' },
+            { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] },
+            { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi'] },
+            { name: 'links' },
+            { name: 'insert' },
+            { name: 'styles' },
+            { name: 'colors' },
+            { name: 'tools' },
+            { name: 'others' },
+            { name: 'about' }
+        ];
+
+        // The default plugins included in the basic setup define some toolbar buttons that
+        // are not needed in a basic editor. These are removed here.
+        config.removeButtons = 'Cut,Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript';
+
+        // Dialog windows are also simplified.
+        config.removeDialogTabs = 'link:advanced';
+
+        // Finally, configure editor placeholder text.
+        config.editorplaceholder = 'Type something here...';
+    };
+
+
+    function save() {
+        $.ajax({
+            url: "/page",
+            type: "post",
+
+            data: {
+                thongbao: CKEDITOR.instances['editor'].getData(),
+                cuoitrang: CKEDITOR.instances['editor2'].getData(),
+                kimcuong: $("#kimcuong").val(),
+                cltx: $("#cltx").val(),
+                xien: $("#xien").val(),
+                dudoankq: $("#dudoankq").val(),
+                urlcard: $("#urlcard").val(),
+                partnerid: $("#partnerid").val(),
+                partnerkey: $("#partnerkey").val(),
+                chatkey: $("#chatkey").val(),
+                sdtmomo: $("#sdtmomo").val(),
+                namemomo: $("#namemomo").val(),
+                the9sao: $("#the9sao").val(),
+                moneychange: $("#moneychange").val(),
+                gt1s: $("#gt1s").val(),
+            },
+            success: function (result) {
+
+                alert(result)
+            }
+        });
+    }
+    CKEDITOR.replace('editor2', {
+        height: 400,
+        baseFloatZIndex: 10005,
+        removeButtons: 'PasteFromWord'
+    });
+    CKEDITOR.instances.editor2.setData($('#cuoitrang').text())
+    CKEDITOR.replace('editor', {
+        height: 400,
+        baseFloatZIndex: 10005,
+        removeButtons: 'PasteFromWord'
+    });
+    CKEDITOR.instances.editor.setData($('#thongbao').text())
+
+</script>

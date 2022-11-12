@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Chơi đẹp 9sao.me
+                </h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-6 mb-4 stretch-card transparent">
+    <div class="card card-tale">
+      <div class="card-body">
+        <p class="mb-2">Tài xỉu</p>
+  
+     <div class="input-group mt-2">
+        <button style="width: 50%;" onclick="bip('tai')" class="btn btn-sm btn-primary" type="button">Tài</button>
+        <button style="width: 50%;" onclick="bip('xiu')" class="btn btn-sm btn-primary" type="button">Xỉu</button>
+    </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<script>
+    
+    function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+    function bip(type) {
+
+        var x1 = -1
+        var x2 = -1
+        var x3 = -1
+        if (type == "tai") {
+            while (Number(x1 + x2 + x3) < 11 || Number(x1 + x2 + x3) == -3) {
+                x1 = (Math.floor(Math.random() * 6) + 1)
+                x2 = (Math.floor(Math.random() * 6) + 1)
+                x3 = (Math.floor(Math.random() * 6) + 1)
+            }
+        }
+        if (type == "xiu") {
+
+            while (Number(x1 + x2 + x3) > 10 || Number(x1 + x2 + x3) == -3) {
+               
+                x1 = (Math.floor(Math.random() * 6) + 1)
+                x2 = (Math.floor(Math.random() * 6) + 1)
+                x3 = (Math.floor(Math.random() * 6) + 1)
+            }
+        }
+        if (x1 != -1 && x2 != -1 && x3 != -1) {
+            $.ajax({
+                url: "/choidep/btx",
+                type: "post",
+                data: { x1: x1, x2: x2, x3: x3 },
+                success: function (result) {
+                    alert(result)
+                }
+            });
+        }
+    }
+  
+   
+
+</script>

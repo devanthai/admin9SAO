@@ -1,0 +1,466 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+        <h3 class="font-weight-bold">Trang quản lý thành viên
+        </h3>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2">
+
+  <div class="form-group col-md-6">
+    <div class="input-group">
+      <input id="taikhoansearch" type="text" class="form-control" placeholder="Tài khoản" aria-label="Tài khoản">
+      <div class="input-group-append">
+        <button onclick="searchTv()" class="btn btn-sm btn-primary" type="button">Tìm kiếm</button>
+      </div>
+    </div>
+    <div class="input-group">
+      <input id="iptaikhoansearch" type="text" class="form-control" placeholder="IP" aria-label="IP">
+      <div class="input-group-append">
+        <button onclick="searchIp()" class="btn btn-sm btn-primary" type="button">Tìm kiếm</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title mb-0">Thành viên</p>
+        <div class="table-responsive">
+          <table class=" table table-striped table-borderless">
+            <thead>
+              <tr>
+                <th>Tài khoản</th>
+                <th>Server</th>
+                <th>Vàng</th>
+                <th>Kim cương</th>
+                <th>Tổng cược ngày</th>
+                <th>Tổng nạp card tháng</th>
+                <th>Ngày tham gia</th>
+                <th>IP</th>
+                <th>Điều khiển</th>
+                <th>Xóa</th>
+              </tr>
+            </thead>
+            <tbody id="tbtv">
+              <% if (products.length<=0) { %>
+                <tr class="text-center">
+                  <td colspan="8">Không có thành viên</td>
+                </tr>
+                <% } %>
+                  <% for (var i=0; i < products.length; i++) { %>
+
+
+                    <tr>
+                      <td scope="col">
+                        <%= products[i].username %>
+                      </td>
+                      <td scope="col">
+                        <%= products[i].server %>
+                      </td>
+                      <td scope="col">
+                        <%= String(Math.round(products[i].vang)).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                      </td>
+                      <td scope="col">
+                        <%= products[i].kimcuong %>
+                      </td>
+                      <td scope="col">
+                        <%= String(products[i].thanhtichngay).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                      </td>
+                      <td scope="col">
+                        <%= String(products[i].topup).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                      </td>
+                      <td scope="col">
+                        <%= new Date(Date.parse(products[i].date)).toLocaleString()%>
+                      </td>
+                      <td scope="col">
+                        <%=products[i].IP%>
+                      </td>
+
+                      <td scope="col"> <a href="/loginUser/<%= products[i]._id %>" target="_blank">Truy cập</a></td>
+                      <td scope="col"> <a onclick="xoa('<%= products[i]._id %>')">Xóa</a></td>
+                    </tr>
+
+
+                    </tr>
+
+
+                    <% } %>
+
+
+
+
+
+
+
+            </tbody>
+          </table>
+
+
+        </div>
+
+        <% if (pages> 0) { %>
+          <nav aria-label="...">
+            <ul class="pagination mt-2">
+              <% if (current==1) { %>
+                <li class="page-item disabled"><a class="page-link">Đầu</a></li>
+                <% } else { %>
+                  <li><a class="page-link" href="/thanhvien?page=1">Đầu</a></li>
+                  <% } %>
+                    <% var i=(Number(current)> 2 ? Number(current) - 2 : 1) %>
+                      <% if (i !==1) { %>
+                        <li class="disabled"><a class="page-link">...</a></li>
+                        <% } %>
+                          <% for (; i <=(Number(current) + 2) && i <=pages; i++) { %>
+                            <% if (i==current) { %>
+                              <li class="page-item active"><a class="page-link">
+                                  <%= i %>
+                                </a></li>
+                              <% } else { %>
+                                <li><a class="page-link" href="/thanhvien?page=<%= i %>">
+                                    <%= i %>
+                                  </a></li>
+                                <% } %>
+                                  <% if (i==Number(current) + 2 && i < pages) { %>
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                                    <% } %>
+                                      <% } %>
+                                        <% if (current==pages) { %>
+                                          <li class="page-item disabled"><a class="page-link">Cuối</a></li>
+                                          <% } else { %>
+                                            <li><a class="page-link" href="/thanhvien?page=<%= pages %>">Cuối</a></li>
+                                            <% } %>
+            </ul>
+          </nav>
+          <% } %>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="row mt-2">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Nạp tiền thành viên</h4>
+
+        <div class="form-group row">
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Tài khoản</span>
+              </div>
+              <input id="taikhoan" type="text" class="form-control" placeholder="Username" aria-label="Username">
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Số vàng</span>
+              </div>
+              <input id="gold" type="text" class="form-control" placeholder="Số vàng" aria-label="Số vàng">
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Kiểu</span>
+              </div>
+              <select id="type" class="form-control">
+                <option value="1">Nạp tiền</option>
+                <option value="2">Trừ tiền</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+
+              <button onclick="naptien()" type="button" class="btn btn-danger">Thực hiện ngay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row mt-2">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Nạp momo - bank tay</h4>
+
+        <div class="form-group row">
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Tài khoản</span>
+              </div>
+              <input id="taikhoanbank" type="text" class="form-control" placeholder="Username" aria-label="Username">
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Số tiền</span>
+              </div>
+              <input id="gold2" type="text" class="form-control" placeholder="Số tien" aria-label="Số tiền">
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Doanh thu</span>
+              </div>
+              <select id="typebanktay" class="form-control">
+                <option value="2">Cộng vào doanh thu</option>
+                <option value="1">Không cộng vào doanh thu</option>
+
+
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+
+              <button onclick="napbank()" type="button" class="btn btn-danger">Thực hiện ngay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row mt-2">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Nạp Kim cương</h4>
+
+        <div class="form-group row">
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Tài khoản</span>
+              </div>
+              <input id="taikhoan2" type="text" class="form-control" placeholder="Username" aria-label="Username">
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Số kim cương</span>
+              </div>
+              <input id="kimcuong" type="text" class="form-control" placeholder="Số kim cuong" aria-label="Số vàng">
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Kiểu</span>
+              </div>
+              <select id="type2" class="form-control">
+                <option value="1">Nạp </option>
+                <option value="2">Trừ </option>
+
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="input-group">
+
+              <button onclick="napkimcuong()" type="button" class="btn btn-danger">Thực hiện ngay</button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var tbtv = document.getElementById('tbtv')
+  $("#gold2").on("keyup", function (event) {
+    var selection = window.getSelection().toString();
+    if (selection !== '') {
+      return;
+    }
+    if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+      return;
+    }
+    var $this = $(this);
+    var input = $this.val();
+    var input = input.replace(/[\D\s\._\-]+/g, "");
+    input = input ? parseInt(input, 10) : 0;
+    $this.val(function () {
+      return (input === 0) ? "" : input.toLocaleString("en-US");
+    });
+  });
+  $("#gold").on("keyup", function (event) {
+    var selection = window.getSelection().toString();
+    if (selection !== '') {
+      return;
+    }
+    if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+      return;
+    }
+    var $this = $(this);
+    var input = $this.val();
+    var input = input.replace(/[\D\s\._\-]+/g, "");
+    input = input ? parseInt(input, 10) : 0;
+    $this.val(function () {
+      return (input === 0) ? "" : input.toLocaleString("en-US");
+    });
+  });
+
+  function xoa(id) {
+    if (!confirm("bạn có chắc muốn nhấn ok ?")) {
+      return;
+    }
+    $.ajax({
+      url: "/thanhvien/xoa",
+      type: "post",
+      data: {
+        zzz: "vang",
+        id: id
+
+      },
+      success: function (result) {
+        window.location.reload();
+        alert(result)
+      }
+    });
+
+  }
+  function napbank() {
+    if (!confirm("bạn có chắc muốn nhấn ok ?")) {
+      return;
+    }
+    const gold = $('#gold2').val()
+    if (gold != "" && gold != null) {
+      $.ajax({
+        url: "/thanhvien/napbank",
+        type: "post",
+        data: {
+          taikhoan: $('#taikhoanbank').val(),
+          amount: $('#gold2').val(),
+          typebanktay: $('#typebanktay').val()
+        },
+        success: function (result) {
+          $('#gold2').val("")
+          alert(result)
+        }
+      });
+    }
+
+
+  }
+
+  function naptien() {
+    if (!confirm("bạn có chắc muốn nhấn ok ?")) {
+      return;
+    }
+    $.ajax({
+      url: "/thanhvien/naptien",
+      type: "post",
+      data: {
+        zzz: "vang",
+        taikhoan: $('#taikhoan').val(),
+        type: $('#type').val(),
+        gold: $('#gold').val()
+      },
+      success: function (result) {
+        $('#gold').val("")
+        alert(result)
+      }
+    });
+
+  }
+
+
+  function searchIp() {
+
+    $.ajax({
+      url: "/thanhvien/searchip",
+      type: "post",
+      data: {
+
+        taikhoan: $('#iptaikhoansearch').val()
+
+      },
+      success: function (result) {
+        if (result.error == 0) {
+          tbtv.innerHTML = result.table
+        }
+        else {
+          alert(result.message)
+        }
+
+      }
+    });
+
+  }
+  function searchTv() {
+
+    $.ajax({
+      url: "/thanhvien/search",
+      type: "post",
+      data: {
+
+        taikhoan: $('#taikhoansearch').val()
+
+      },
+      success: function (result) {
+        if (result.error == 0) {
+          tbtv.innerHTML = result.table
+        }
+        else {
+          alert(result.message)
+        }
+
+      }
+    });
+
+  }
+  function napkimcuong() {
+    if (!confirm("bạn có chắc muốn nhấn ok ?")) {
+      return;
+    }
+    $.ajax({
+      url: "/thanhvien/naptien",
+      type: "post",
+      data: {
+        zzz: "kimcuong",
+        taikhoan: $('#taikhoan2').val(),
+        type: $('#type2').val(),
+        gold: $('#kimcuong').val()
+      },
+      success: function (result) {
+        $('#kimcuong').val("")
+        alert(result)
+      }
+    });
+
+  }
+
+</script>

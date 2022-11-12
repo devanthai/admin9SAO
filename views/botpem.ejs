@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">BOT
+                </h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">BOT</h4>
+                <div class="form-group">
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Large textarea</label>
+                        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1"
+                            rows="50"><%-databot%></textarea>
+                        
+                    </div>
+                    <div class="input-group">
+                       
+                     
+                        <textarea class="form-control rounded-0" id="setting"
+                        rows="5"><%-setting%></textarea>
+                      </div>
+                </div>
+                <button onclick="save()">Lưu</button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+<script>
+
+
+
+
+
+
+    function save() {
+        $.ajax({
+            url: "/botpem",
+            type: "post",
+
+            data: {
+                hello: $('#exampleFormControlTextarea1').val(),
+                setting:$('#setting').val()
+            },
+            success: function (result) {
+
+                alert(result)
+            }
+        });
+    }
+
+
+
+</script>

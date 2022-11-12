@@ -1,0 +1,64 @@
+<footer class="footer">
+  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a
+        href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All
+      rights reserved.</span>
+    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
+        class="ti-heart text-danger ml-1"></i></span>
+  </div>
+</footer>
+
+
+<div class="modal fade" id="modaldoimk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label>Tài khoản: <%=data.name%></label>
+
+        <br>
+        <label>Mật khẩu cũ</label>
+        <input id="mkcu" type="text" class="form-control" placeholder="mk cu" aria-label="mk cu">
+        <br>
+        <label>Mật khẩu mới</label>
+        <input id="mkmoi" type="password" class="form-control" placeholder="mk moi" aria-label="mk moi">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button onclick="doipass()" type="button" class="btn btn-primary">Đổi ngay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function doipass() {
+
+    $.ajax({
+      url: "/login/changepass",
+      type: "post",
+      data: {
+
+        mkcu: $('#mkcu').val(),
+        mkmoi: $('#mkmoi').val()
+      },
+      success: function (result) {
+        if (result.error == 0) {
+          alert(result.message)
+          location.reload();
+        }
+        else {
+          alert(result.message)
+        }
+
+      }
+    });
+
+  }
+</script>

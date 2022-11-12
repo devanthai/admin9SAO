@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Banks
+                </h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">DANH SÁCH BANK HOM NAY</h4>
+                
+                <div class="table-responsive">
+                    <table class=" table table-striped table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Magd </th>
+                                <th>Noi dung</th>
+                                <th>So tien</th>
+                                <th>Thuc nhan</th>
+                                <th>TIme</th>
+                                <th>hanh dong</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (var i=0; i < banks.length; i++) { %>
+                                    <tr>
+                                        <td><%=banks[i].magd%></td>
+                                        <td><%=banks[i].noidung%></td>
+                                        <td><%=banks[i].sotien%></td>
+                                        <td><%=banks[i].thucnhan%></td>
+                                        <td scope="col">
+                                            <%= new Date(Date.parse(banks[i].time)).toLocaleString()%>
+                                          </td>
+                                        <td scope="col"> <a href="/loginUser/<%= banks[i].uid %>"
+                                            target="_blank">Truy cập</a></td>
+                                    </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script>
+
+
+
+
+
+</script>

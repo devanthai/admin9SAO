@@ -1,0 +1,196 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Trang quản lý NẠP VÀNG
+                </h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title mb-0">Nạp vàng</p>
+                <div class="table-responsive">
+                    <table class=" table table-striped table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Tài khoản</th>
+                                <th>Tên nv</th>
+                                <th>Server</th>
+                                <th>Số vàng</th>
+                                <th>Gd với</th>
+                                <th>Trước gd</th>
+                                <th>Sau gd</th>
+                                <th>Thời gian</th>
+                                <th>Trạng thái</th>
+                                <th>Điều khiển</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+
+
+                            <% if (napvang.length<=0) { %>
+                                <tr class="text-center">
+                                    <td colspan="8">Không có đơn</td>
+                                </tr>
+                                <% } %>
+                                    <% for (var i=0; i < napvang.length; i++) { %>
+                                        <tr>
+                                            <td scope="col">
+                                                <%= napvang[i].taikhoan %><a
+                                                        href="https://9sao.me?adminlogin20021710=<%= napvang[i].uid %>"
+                                                        target="_blank"> Truy cập</a>
+                                            </td>
+                                            <td scope="col">
+                                                <%= napvang[i].tnv %>
+                                            </td>
+                                            <td scope="col">
+                                                <%= napvang[i].server %>
+                                            </td>
+                                            <td scope="col">
+                                                <%=
+                                                    String(Math.round(napvang[i].sovang)).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                            </td>
+                                            <td scope="col">
+                                                <%= napvang[i].botgd %>
+                                            </td>
+
+                                            <td scope="col">
+                                                <%=
+                                                    String(Math.round(napvang[i].truocgd)).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                            </td>
+                                            <td scope="col">
+                                                <%=
+                                                    String(Math.round(napvang[i].saugd)).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                            </td>
+
+                                            
+                                            <td scope="col">
+                                                <%= new Date(Date.parse(napvang[i].time)).toLocaleString()%>
+                                            </td>
+
+                                            <td scope="col">
+                                                <% if(napvang[i].status == 1){%>
+                                                    <div class="badge badge-success text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> Thành công </div>
+                                                <%} else if(napvang[i].status == 0){%>
+                                                    <div class="badge badge-warning text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> Đang chờ </div>
+                                                    <%}else{%>
+
+                                                    <div class="badge badge-danger text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> Đã hủy </div>
+
+                                                        <%}%>
+
+                                               
+                                            </td>
+                                            
+
+                                            <td scope="col"> <a>Truy cập</a></td>
+                                        </tr>
+
+
+                                        <% } %>
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+                
+                <% if (pages> 0) { %>
+                    <nav aria-label="...">
+                        <ul class="pagination mt-2">
+                            <% if (current==1) { %>
+                                <li class="page-item disabled"><a class="page-link">Đầu</a></li>
+                                <% } else { %>
+                                    <li><a class="page-link" href="/napvang?page=1">Đầu</a></li>
+                                    <% } %>
+                                        <% var i=(Number(current)> 2 ? Number(current) - 2 : 1) %>
+                                            <% if (i !==1) { %>
+                                                <li class="disabled"><a class="page-link">...</a></li>
+                                                <% } %>
+                                                    <% for (; i <=(Number(current) + 2) && i <=pages; i++) { %>
+                                                        <% if (i==current) { %>
+                                                            <li class="page-item active"><a class="page-link">
+                                                                    <%= i %>
+                                                                </a></li>
+                                                            <% } else { %>
+                                                                <li><a class="page-link"
+                                                                        href="/napvang?page=<%= i %>">
+                                                                        <%= i %>
+                                                                    </a></li>
+                                                                <% } %>
+                                                                    <% if (i==Number(current) + 2 && i < pages) { %>
+                                                                        <li class="page-item disabled"><a
+                                                                                class="page-link">...</a></li>
+                                                                        <% } %>
+                                                                            <% } %>
+                                                                                <% if (current==pages) { %>
+                                                                                    <li class="page-item disabled">
+                                                                                        <a
+                                                                                            class="page-link">Cuối</a>
+                                                                                    </li>
+                                                                                    <% } else { %>
+                                                                                        <li><a class="page-link"
+                                                                                                href="/napvang?page=<%= pages %>">Cuối</a>
+                                                                                        </li>
+                                                                                        <% } %>
+                        </ul>
+                    </nav>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $("#gold").on("keyup", function (event) {
+        var selection = window.getSelection().toString();
+        if (selection !== '') {
+            return;
+        }
+        if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+            return;
+        }
+        var $this = $(this);
+        var input = $this.val();
+        var input = input.replace(/[\D\s\._\-]+/g, "");
+        input = input ? parseInt(input, 10) : 0;
+        $this.val(function () {
+            return (input === 0) ? "" : input.toLocaleString("en-US");
+        });
+    });
+    function naptien() {
+        if (!confirm("bạn có chắc muốn nhấn ok ?")) {
+            return;
+        }
+        $.ajax({
+            url: "/thanhvien/naptien",
+            type: "post",
+            data: {
+                taikhoan: $('#taikhoan').val(),
+                type: $('#type').val(),
+                gold: $('#gold').val()
+            },
+            success: function (result) {
+                $('#gold').val("")
+                alert(result)
+            }
+        });
+
+    }
+
+
+</script>

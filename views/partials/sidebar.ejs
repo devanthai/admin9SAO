@@ -1,0 +1,114 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Trang chủ</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Cài đặt Game</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/page">Cài đặt trang</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/chietkhau">Chiết khấu</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/gamecontrol">GAME Controller</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/ipblock">Block IP</a></li>
+
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/thanhvien">
+        <i class="icon-head menu-icon"></i>
+        <span class="menu-title">Quản lý thành viên</span>
+      </a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link" href="/bot">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Thông tin bot</span>
+      </a>
+    </li> -->
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#vanggg" aria-expanded="false" aria-controls="vanggg">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Quản lý nạp rút</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="vanggg">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/napvang">Nạp vàng</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/napthoi">Nạp thỏi vàng</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/rutvang">Rút vàng</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/rutthoi">Rút Thỏi</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/idnaprut">ID nạp rút</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/viewrutvang?type=taikhoan">Rút vàng Theo TK</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/viewrutvang?type=taikhoanthoi">Rút thỏi Theo TK</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/viewrutvang?type=tnv">Rút vàng theo TNV</a></li>
+
+        </ul>
+      </div>
+    </li>
+
+
+
+
+
+
+
+    <%if(data.name=="tronganh" || data.name=="thaipro2k2" ||data.name=="tung" ||data.name=="tai"){%>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/hisadmin">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Lịch sử ADMIN</span>
+      </a>
+    </li>
+    <%}%>
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#thongkee" aria-expanded="false" aria-controls="thongkee">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Thống kê</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="thongkee">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/thangnay">Tháng này</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/homnay">Hôm nay</a></li>
+        </ul>
+      </div>
+    </li>
+    <%if(data.name=="tronganh" || data.name=="thaipro2k2"||data.name=="tung"||data.name=="tai"){%>
+    <li class="nav-item">
+      <a class="nav-link" href="/gifcode">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Gifcode</span>
+      </a>
+    </li>
+    <%}%>
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#thongkee2" aria-expanded="false" aria-controls="thongkee2">
+        <i class="icon-layout menu-icon"></i>
+        <span class="menu-title">Thống kê 2</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="thongkee2">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/thongke">Hôm nay</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/thongke?time=thang">Tháng này</a></li>
+        </ul>
+      </div>
+    </li>
+
+   
+  </ul>
+</nav>

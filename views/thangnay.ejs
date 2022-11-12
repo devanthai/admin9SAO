@@ -1,0 +1,411 @@
+<div class="col-lg-12 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Tháng này</h4>
+
+            <div class="table-responsive ">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Vàng nạp
+                            </th>
+                            <th>
+                                Vàng rút
+                            </th>
+                            <th>
+                                Nạp trừ rút
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-info">
+                            <td>
+                                Server 1
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv1 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv1 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv1-data.rutsv1).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+
+                        </tr>
+                        <tr class="table-warning">
+                            <td>
+                                Server 2
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv2 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv2 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv2-data.rutsv2).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>
+                                Server 3
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv3 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv3 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv3-data.rutsv3).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>
+                                Server 4
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv4 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv4).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv4-data.rutsv4).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-primary">
+                            <td>
+                                Server 5
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv5 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv5).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv5-data.rutsv5).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td>
+                                Server 6
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv6 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv6 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv6-data.rutsv6).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>
+                                Server 7
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv7 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv7 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv7-data.rutsv7).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>
+                                Server 8
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv8 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv8 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv8-data.rutsv8).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td>
+                                Server 9
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv9 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv9).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(data.napsv9-data.rutsv9).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+
+                        <tr class="table-success">
+                            <td>
+                                Tổng
+                            </td>
+                            <td>
+                             
+                                <%=String(data.napsv1+data.napsv2+data.napsv3+data.napsv4+data.napsv5+data.napsv6+data.napsv7+data.napsv8+data.napsv9 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(data.rutsv1+data.rutsv2+data.rutsv3+data.rutsv4+data.rutsv5+data.rutsv6+data.rutsv7+data.rutsv8+data.rutsv9 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+       
+                         
+                            </td>
+                            <td>
+                                <%=String((data.napsv1+data.napsv2+data.napsv3+data.napsv4+data.napsv5+data.napsv6+data.napsv7+data.napsv8+data.napsv9)-(data.rutsv1+data.rutsv2+data.rutsv3+data.rutsv4+data.rutsv5+data.rutsv6+data.rutsv7+data.rutsv8+data.rutsv9) ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                    
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hôm nay</h4>
+
+            <div class="table-responsive ">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Thỏi nạp
+                            </th>
+                            <th>
+                                Thỏi rút
+                            </th>
+                            <th>
+                                Nạp trừ rút
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-info">
+                            <td>
+                                Server 1
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv1 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv1 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv1-thoivang.rutsv1).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+
+                        </tr>
+                        <tr class="table-warning">
+                            <td>
+                                Server 2
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv2 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv2 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv2-thoivang.rutsv2).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>
+                                Server 3
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv3 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv3 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv3-thoivang.rutsv3).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>
+                                Server 4
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv4 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv4).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv4-thoivang.rutsv4).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-primary">
+                            <td>
+                                Server 5
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv5 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv5).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv5-thoivang.rutsv5).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td>
+                                Server 6
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv6 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv6 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv6-thoivang.rutsv6).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>
+                                Server 7
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv7 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv7 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv7-thoivang.rutsv7).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>
+                                Server 8
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv8 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv8 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv8-thoivang.rutsv8).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td>
+                                Server 9
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv9 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv9).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                         
+                            </td>
+                            <td>
+                                <%=String(thoivang.napsv9-thoivang.rutsv9).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                                
+                            </td>
+                        </tr>
+
+                        <tr class="table-success">
+                            <td>
+                                Tổng
+                            </td>
+                            <td>
+                             
+                                <%=String(thoivang.napsv1+thoivang.napsv2+thoivang.napsv3+thoivang.napsv4+thoivang.napsv5+thoivang.napsv6+thoivang.napsv7+thoivang.napsv8+thoivang.napsv9 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                            </td>
+                            <td>
+                                <%=String(thoivang.rutsv1+thoivang.rutsv2+thoivang.rutsv3+thoivang.rutsv4+thoivang.rutsv5+thoivang.rutsv6+thoivang.rutsv7+thoivang.rutsv8+thoivang.rutsv9 ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+       
+                         
+                            </td>
+                            <td>
+                                <%=String((thoivang.napsv1+thoivang.napsv2+thoivang.napsv3+thoivang.napsv4+thoivang.napsv5+thoivang.napsv6+thoivang.napsv7+thoivang.napsv8+thoivang.napsv9)-(thoivang.rutsv1+thoivang.rutsv2+thoivang.rutsv3+thoivang.rutsv4+thoivang.rutsv5+thoivang.rutsv6+thoivang.rutsv7+thoivang.rutsv8+thoivang.rutsv9) ).replace(/(.)(?=(\d{3})+$)/g,'$1,')%>
+                    
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

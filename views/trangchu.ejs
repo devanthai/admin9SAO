@@ -1,0 +1,296 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+        <h3 class="font-weight-bold">Chào <%=data.name%>
+        </h3>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+  <%if(data.name=="thaipro2k2" || data.name=="tung" || data.name=="tronganh" ||data.name=="tai" ){%>
+    <div class="col-md-12 grid-margin transparent">
+      <div class="row">
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-tale">
+            <div class="card-body">
+              <p class="mb-4">Thành viên đang Online</p>
+              <p id="online" class="fs-30 mb-2">0</p>
+              <p>Thành viên</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-dark-blue">
+            <div class="card-body">
+              <p class="mb-4">Thành viên gia nhập hôm nay</p>
+              <p class="fs-30 mb-2">
+                <%=usernow%>
+              </p>
+              <p>Thành viên</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-blue">
+            <div class="card-body">
+              <p class="mb-4">Thẻ cào hôm nay</p>
+              <p class="fs-30 mb-2">
+                <%=card.tong%> VNĐ
+              </p>
+              <p>Thực: <%=card.tongreal%> VNĐ</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-blue">
+            <div class="card-body">
+              <p class="mb-4">Thẻ cào tháng này</p>
+              <p class="fs-30 mb-2">
+                <%=cardthang.tong%> VNĐ
+              </p>
+              <p>Thực: <%=cardthang.tongreal%> VNĐ</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-danger">
+            <div class="card-body">
+              <p class="mb-4">TheSieuRe.Com Ngày</p>
+              <p class="fs-30 mb-2">
+                <%=tsr%> VNĐ
+              </p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-danger">
+            <div class="card-body">
+              <p class="mb-4">TheSieuRe.Com Tháng</p>
+              <p class="fs-30 mb-2">
+                <%=tsrthang%> VNĐ
+              </p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-blue">
+            <div class="card-body">
+              <p class="mb-4">Momo Hôm nay</p>
+              <p class="fs-30 mb-2">
+                <%=momo%> VNĐ
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-danger">
+            <div class="card-body">
+              <p class="mb-4">Momo Tháng</p>
+              <p class="fs-30 mb-2">
+                <%=momothang%> VNĐ
+              </p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-blue">
+            <div class="card-body">
+              <p class="mb-4">Bank Hôm nay</p>
+              <p class="fs-30 mb-2">
+                <%=bank%> VNĐ
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+          <div class="card card-light-danger">
+            <div class="card-body">
+              <p class="mb-4">Bank Tháng</p>
+              <p class="fs-30 mb-2">
+                <%=bankthang%> VNĐ
+              </p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <%}%>
+</div>
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card position-relative">
+      <div class="card-body">
+
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Thành viên Online</h4>
+
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>
+                      Username
+                    </th>
+                    <th>
+                      Tên hiển thị
+                    </th>
+                    <th>
+                      Ip
+                    </th>
+                    <th>
+                      Path
+                    </th>
+                    <th>
+                      Truy cập
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="listUser">
+                
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://socket.9sao.me/socket.io/socket.io.js"></script>
+
+<script>
+
+
+  function timeSince(date) {
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = seconds / 31536000;
+
+    if (interval > 1) {
+      return Math.floor(interval) + " năm";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      return Math.floor(interval) + " tháng";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      return Math.floor(interval) + " ngày";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      return Math.floor(interval) + " tiếng";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      return Math.floor(interval) + " phút";
+    }
+    return Math.floor(seconds) + " giây";
+  }
+
+
+
+  var socketzzz = io.connect("https://socket.9sao.me/");
+  //  var socket = new WebSocket('wss://9sao.me/wss');
+  setInterval(() => {
+    socketzzz.emit("userOnline-admin", "a")
+  }, 300)
+  socketzzz.on("userOnline-admin", (data) => {
+    let html = ""
+    for (const [key, value] of Object.entries(data)) {
+      html += `<tr id=${key}> 
+          <td>${value.username}</td>
+          <td>${value.tenhienthi}</td>
+          <td>${value.Ip}</td>
+          <td>${value.path}</td>
+          <td>${timeSince(value.timeConnect)}</td>
+        </tr>`
+    }
+    document.getElementById("listUser").innerHTML = html
+    var size = Object.keys(data).length;
+    $("#online").text(size)
+  })
+
+  socketzzz.emit("mess-admin", { password: "thaivipyeu", type: "getUser" })
+  socketzzz.on("getUser", (data) => {
+    let html = ""
+    for (const [key, value] of Object.entries(data)) {
+      html += `<tr id=${key}> 
+          <td>${value.username}</td>
+          <td>${value.tenhienthi}</td>
+          <td>${value.Ip}</td>
+          <td>${value.path}</td>
+          <td>${timeSince(value.timeConnect)}</td>
+        </tr>`
+    }
+    document.getElementById("listUser").innerHTML = html
+  })
+  socketzzz.on("addUser", (data) => {
+
+  })
+  socketzzz.on("removeUser", (data) => {
+
+  })
+
+  // var socket = new WebSocket('wss://9sao.me/wss');
+
+  // function connect() {
+
+  //   socket.onopen = function () {
+  //     setInterval(() => {
+  //       socket.send(JSON.stringify({ type: "admin9999999" }))
+
+  //     }, 1000)
+  //   };
+
+  //   socket.onmessage = function (e) {
+  //     console.log(e.data)
+  //     const json = JSON.parse(e.data)
+  //     if (json.type == "admin9999999") {
+  //       $("#online").text(json.useronline)
+  //     }
+  //   };
+
+  //   socket.onclose = function (e) {
+  //     console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
+  //     setTimeout(function () {
+  //       socket = new WebSocket('wss://9sao.me/wss');
+  //       connect();
+  //     }, 1000);
+  //   };
+
+  //   socket.onerror = function (err) {
+  //     console.error('Socket encountered error: ', err.message, 'Closing socket');
+  //     socket.close();
+  //   };
+  // }
+
+  // connect();
+
+</script>

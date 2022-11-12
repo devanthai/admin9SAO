@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Gifcode
+                </h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Gifcode</h4>
+        
+            <form class="form-inline">
+              
+             
+            
+              <label class="sr-only" for="inlineFormInputGroupUsername2">Code</label>
+              <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                </div>
+                <input id="sovang" type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Số vàng">
+                <input id="soluong" type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Số lượng code">
+
+              </div>
+             
+              <button onclick="addid()" type="submit" class="btn btn-primary mb-2">Thêm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">DANH SÁCH IP</h4>
+                
+                <div class="table-responsive">
+                    <table class=" table table-striped table-borderless">
+                        <thead>
+                            <tr>
+                                <th>code</th>
+                                <th>Số vàng</th>
+                                <th>Time</th>
+                                <th>Hành động</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (var i=0; i < idnaprut.length; i++) { %>
+                                    <tr>
+                                        <td><%=idnaprut[i].code%></td>
+                                  
+                                        <td><%= String(idnaprut[i].phanthuong).replace(/(.)(?=(\d{3})+$)/g,'$1,')%></td>
+                                        <td><%= new Date(Date.parse(idnaprut[i].time)).toLocaleString()%></td>
+
+                                        <td><a onclick="deletee('<%=idnaprut[i]._id%>')">xoa</a></td>
+                                    </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script>
+
+
+
+
+    function addid(){
+        $.ajax({
+            url: "/gifcode",
+            type: "post",
+
+            data: {
+                type:"add",
+                soluong: $('#soluong').val(),
+                sovang: $('#sovang').val()
+            },
+            success: function (result) {
+
+                alert(result)
+            }
+        });
+    }
+
+    function deletee(id){
+        $.ajax({
+            url: "/gifcode",
+            type: "post",
+
+            data: {
+                type:"xoa",
+                id: id
+            },
+            success: function (result) {
+
+                alert(result)
+            }
+        });
+    }
+
+
+
+</script>

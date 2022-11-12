@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">GAME Controller
+                </h3>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Game</h4>
+                <button id="ptttttt" onclick="traogiaipt()" type="button" class="btn btn-success">TRAO GIẢI BANG HỘI</button>
+                <button id="topp" onclick="traogiaitop()" type="button" class="btn btn-success">TRAO TOP</button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+<script>
+
+
+
+
+
+
+    function traogiaipt() {
+        if (!confirm("bạn có chắc muốn nhấn ok ?")) {
+            return;
+        }
+        $("#ptttttt").attr("disabled",true);
+        $.ajax({
+            url: "/gamecontrol",
+            type: "post",
+
+            data: {
+                type: "banghoi"
+            },
+            success: function (result) {
+                alert(result)
+            }
+        });
+    }
+    function traogiaitop() {
+
+        if (!confirm("bạn có chắc muốn nhấn ok ?")) {
+            return;
+        }
+        $("#topp").attr("disabled",true);
+        $.ajax({
+            url: "/gamecontrol",
+            type: "post",
+
+            data: {
+                type: "top"
+            },
+            success: function (result) {
+                alert(result)
+            }
+        });
+    }
+
+</script>
