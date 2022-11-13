@@ -20,6 +20,7 @@
                   <th scope="col">Phiên</th>
     
                   <th scope="col">Thời gian</th>
+                  <th scope="col">Ip</th>
                   <th scope="col">Nhân vật</th>
                   <th scope="col">Vàng đặt</th>
                   <th scope="col">Dự đoán</th>
@@ -39,6 +40,8 @@
                     <td scope="col"><%= taixius[i].phien %></td>
     
                     <td scope="col"> <%= new Date(Date.parse(taixius[i].time)).toLocaleString()%></td>
+                    <td scope="col"><%= taixius[i].ip %></td>
+
                     <td scope="col"><%= taixius[i].nhanvat %></td>
              
                     <td scope="col"><%=  String(Math.round(taixius[i].vangdat)).replace(/(.)(?=(\d{3})+$)/g,'$1,') %></td>
