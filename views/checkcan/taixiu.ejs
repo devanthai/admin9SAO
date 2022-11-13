@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tài xỉu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+    <h1>Tài xỉu!</h1>
+
+        <table class="table table-bordered border-primary">
+    
+            <thead class="bg bg-info text-white">
+                <tr>
+                  <th scope="col">Phiên</th>
+    
+                  <th scope="col">Thời gian</th>
+                  <th scope="col">Nhân vật</th>
+                  <th scope="col">Vàng đặt</th>
+                  <th scope="col">Dự đoán</th>
+                  <th scope="col">Vàng nhận</th>
+                  <th scope="col">Tình trạng</th>
+                  <th scope="col">Chức năng</th>
+                </tr>
+              </thead>
+    
+              <tbody>
+    
+            <% for (var i = 0; i < taixius.length; i++) { %>
+               
+               
+                <tr>
+                    <td scope="col"><%= taixius[i].phien %></td>
+    
+                    <td scope="col"> <%= new Date(Date.parse(taixius[i].time)).toLocaleString()%></td>
+                    <td scope="col"><%= taixius[i].nhanvat %></td>
+             
+                    <td scope="col"><%=  String(Math.round(taixius[i].vangdat)).replace(/(.)(?=(\d{3})+$)/g,'$1,') %></td>
+    
+    
+    
+                    <% if (taixius[i].type=="chan") { %>        
+                        <td class="badge bg-info  text-uppercase font-weight-bold" scope="col">Chẵn</td>
+    
+                    <% }  else if(taixius[i].type=="le"){ %>
+                        <td class="badge bg-warning  text-uppercase font-weight-bold" scope="col">Lẻ</td>
+    
+                        <% } %>
+    
+                      
+    
+    
+
+    
+                    <% if (taixius[i].vangnhan==-1) { %>
+                        <td scope="col"> <img id="loadding" style="margin-left: 10px;" src="https://nrocltx.com/image/hehehehe.gif" alt="loading" width="auto" height="20px"></td>
+                        <% } else { %>
+    
+                            <td scope="col"><%= String(Math.round(taixius[i].vangnhan)).replace(/(.)(?=(\d{3})+$)/g,'$1,')  %></td>
+                    <% } %>
+    
+                  
+                  
+                    <% if (taixius[i].status==-1) { %>
+                        <td scope="col">   <img id="loadding" style="margin-left: 10px;" src="https://nrocltx.com/image/hehehehe.gif" alt="loading" width="auto" height="20px">  </td>
+                    <% }  else if(taixius[i].status==1){ %>
+                        <td scope="col">    <div class="badge bg-success text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> Đã thanh toán </div>  </td>
+                    <% } else if(taixius[i].status==2){ %>
+                        <td scope="col">  <div class="badge bg-danger text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> THUA </div>  </td>
+                        <% }  %>
+    
+                        <td>                <a class="btn btn-outline-info btn-sm" href="/loginUser/<%= taixius[i].uid %>" target="_blank">Truy cập</a>
+                        </td>
+                
+                </tr>
+    
+               
+            <% } %>
+            </table>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
