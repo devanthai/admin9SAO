@@ -6,6 +6,27 @@ const ChanLe2 = require("../models/chanle/Lichsu")
 const Cuoc = require("../models/Cuoc")
 
 router.get("/taixiu", async (req, res) => {
+
+
+    let time = req.query.start;
+
+    let [dateValues, timeValues] = start.split(' ');
+
+    let [month, day, year] = dateValues.split('/');
+    let [hours, minutes, seconds] = timeValues.split(':');
+
+    const dateStart = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
+
+    time = req.query.end
+    [dateValues, timeValues] = start.split(' ');
+
+    [month, day, year] = dateValues.split('/');
+    [hours, minutes, seconds] = timeValues.split(':');
+
+    const dateEnd = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
+
+    console.log(dateStart,dateEnd)
+
     let now = new Date();
     let DATE = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (req.query.day || 0));
     const taixius = await TaiXiu.find({ time: { $gte: DATE } }).sort({ time: -1 })
