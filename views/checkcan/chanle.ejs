@@ -15,11 +15,10 @@
     
         <thead class="bg bg-info text-white">
             <tr>
-              <th scope="col" hidden="true">Phiên</th>
-
-              <th scope="col" hidden="true">Thời gian</th>
+              <th scope="col">Phiên</th>
 
               <th scope="col">Thời gian</th>
+              <th scope="col">Nhân vật</th>
               <th scope="col">Vàng đặt</th>
               <th scope="col">Dự đoán</th>
               <th scope="col">Kết quả</th>
@@ -36,8 +35,8 @@
             <tr>
                 <td scope="col"><%= taixius[i].phien %></td>
 
-                <td scope="col" hidden="true"> <%= new Date(Date.parse(taixius[i].time)).getTime()%></td>
                 <td scope="col"> <%= new Date(Date.parse(taixius[i].time)).toLocaleString()%></td>
+                <td scope="col"><%= taixius[i].nhanvat %></td>
          
                 <td scope="col"><%=  String(Math.round(taixius[i].vangdat)).replace(/(.)(?=(\d{3})+$)/g,'$1,') %></td>
 
@@ -55,7 +54,7 @@
 
 
                 <% if (taixius[i].ketqua==-1) { %>
-                    <td scope="col"> <img id="loadding" style="margin-left: 10px;" src="https://10sao.me/images/loading.gif" alt="loading" width="auto" height="20px"></td>
+                    <td scope="col"> <img id="loadding" style="margin-left: 10px;" src="https://nrocltx.com/image/hehehehe.gif" alt="loading" width="auto" height="20px"></td>
                     <% } else { %>
 
                 <td scope="col"><%= taixius[i].ketqua %></td>
@@ -63,7 +62,7 @@
 
 
                 <% if (taixius[i].vangnhan==-1) { %>
-                    <td scope="col"> <img id="loadding" style="margin-left: 10px;" src="https://10sao.me/images/loading.gif" alt="loading" width="auto" height="20px"></td>
+                    <td scope="col"> <img id="loadding" style="margin-left: 10px;" src="https://nrocltx.com/image/hehehehe.gif" alt="loading" width="auto" height="20px"></td>
                     <% } else { %>
 
                         <td scope="col"><%= String(Math.round(taixius[i].vangnhan)).replace(/(.)(?=(\d{3})+$)/g,'$1,')  %></td>
@@ -72,13 +71,14 @@
               
               
                 <% if (taixius[i].status==-1) { %>
-                    <td scope="col">   <img id="loadding" style="margin-left: 10px;" src="https://10sao.me/images/loading.gif" alt="loading" width="auto" height="20px">  </td>
+                    <td scope="col">   <img id="loadding" style="margin-left: 10px;" src="https://nrocltx.com/image/hehehehe.gif" alt="loading" width="auto" height="20px">  </td>
                 <% }  else if(taixius[i].status==1){ %>
-                    <td scope="col">    <div class="badge badge-success text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> Đã thanh toán </div>  </td>
+                    <td scope="col">    <div class="badge bg-success text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> Đã thanh toán </div>  </td>
                 <% } else if(taixius[i].status==2){ %>
-                    <td scope="col">  <div class="badge badge-danger text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> THUA </div>  </td>
+                    <td scope="col">  <div class="badge bg-danger text-uppercase font-weight-bold" ;="" style="padding: 5px 5px"> THUA </div>  </td>
                     <% }  %>
-               
+
+                <a class="btn btn-outline-info btn-lg" href="/loginUser/<%= taixius[i].uid %>" target="_blank">Truy cập</a>
             
             </tr>
 
