@@ -5,9 +5,8 @@ const TaiXiu2 = require("../models/taixiu/Lichsu")
 const ChanLe2 = require("../models/chanle/Lichsu")
 const Cuoc = require("../models/Cuoc")
 
-router.get("/taixiu", async (req, res) => {
 
-
+startMid = (req, res, next) => {
     let time = req.query.start;
 
     let [dateValues, timeValues] = time.split(' ');
@@ -16,16 +15,27 @@ router.get("/taixiu", async (req, res) => {
     let [hours, minutes, seconds] = timeValues.split(':');
 
     const dateStart = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
+    req.dateStart = dateStart
+    next()
+}
+endMid = (req, res, next) => {
+    let time = req.query.end;
 
-    time = req.query.end
-    [dateValues, timeValues] = time.split(' ');
+    let [dateValues, timeValues] = time.split(' ');
 
-    [month, day, year] = dateValues.split('/');
-    [hours, minutes, seconds] = timeValues.split(':');
+    let [month, day, year] = dateValues.split('/');
+    let [hours, minutes, seconds] = timeValues.split(':');
 
-    const dateEnd = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
+    const dateStart = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
+    req.dateEnd = dateStart
+    next()
+}
+router.get("/taixiu", startMid, endMid, async (req, res) => {
 
-    console.log(dateStart,dateEnd)
+
+   
+
+    console.log(req.dateStart, req.dateEnd)
 
     let now = new Date();
     let DATE = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (req.query.day || 0));
