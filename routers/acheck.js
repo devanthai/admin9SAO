@@ -35,11 +35,9 @@ router.get("/taixiu", startMid, endMid, async (req, res) => {
 
    
 
-    console.log(req.dateStart, req.dateEnd)
-
     let now = new Date();
     let DATE = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (req.query.day || 0));
-    const taixius = await TaiXiu.find({ time: { $gte: DATE } }).sort({ time: -1 })
+    const taixius = await TaiXiu.find({ time: { $gte: req.dateStart, $lte: req.dateEnd } }).sort({ time: -1 })
     res.render("checkcan/taixiu", { taixius })
 })
 
