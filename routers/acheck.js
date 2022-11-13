@@ -10,7 +10,7 @@ router.get("/taixiu", async (req, res) => {
 
     let time = req.query.start;
 
-    let [dateValues, timeValues] = start.split(' ');
+    let [dateValues, timeValues] = time.split(' ');
 
     let [month, day, year] = dateValues.split('/');
     let [hours, minutes, seconds] = timeValues.split(':');
@@ -18,7 +18,7 @@ router.get("/taixiu", async (req, res) => {
     const dateStart = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
 
     time = req.query.end
-    [dateValues, timeValues] = start.split(' ');
+    [dateValues, timeValues] = time.split(' ');
 
     [month, day, year] = dateValues.split('/');
     [hours, minutes, seconds] = timeValues.split(':');
